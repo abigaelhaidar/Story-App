@@ -1,0 +1,29 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin card-hover {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@mixin responsive($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin button-variant($background, $color) {
+  background-color: $background;
+  color: $color;
+  
+  &:hover {
+    background-color: darken($background, 10%);
+  }
+}
